@@ -19,10 +19,10 @@ extern "C" {
 
 extern AsyncMqttClient mqttClient;
 
-#define MQTT_HOST "192.168.1.7"
-#define MQTT_PORT 1883
-// #define MQTT_HOST "113.161.225.11"
-// #define MQTT_PORT 3883
+// #define MQTT_HOST "192.168.1.10"
+// #define MQTT_PORT 1883
+#define MQTT_HOST "113.161.225.11"
+#define MQTT_PORT 3883
 #define username1 "username"
 #define password1 "password"
 // MQTT Topic

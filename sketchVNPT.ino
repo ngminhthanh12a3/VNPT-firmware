@@ -170,8 +170,28 @@ void loop()
 
     serializeJson(doc, Serial);
     char buffer[400];
-    size_t n = serializeJson(doc, buffer);
-    uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, n, true, buffer);
+    const size_t n = serializeJson(doc, buffer);
+    // uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, n, true, buffer);
+
+    // C: set '\0' for buffer
+    buffer[n] = '\0';
+
+    // ChaCha20 Practice
+    uint32 cell[16];
+    uint8 textOutput[n];
+
+    chaChaXor(keyStream, cell, (uint8*)buffer, textOutput);
+
+    
+    // C: Print textOutput
+    Serial.printf("\nEncrypt Buffer: %d\n", n);
+    for (int i = 0; i < n - 1; i++)
+      Serial.printf("%d, ", textOutput[i]);
+    Serial.printf("%d", textOutput[n - 1]);
+    
+    Serial.println("");
+    uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, 1, true, (char*)textOutput, n);
+    
     Serial.println("");
     Serial.println("send data to server");
     
