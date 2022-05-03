@@ -59,7 +59,7 @@ void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties 
   Serial.println(total);
   Serial.println(String(payload[1]));
 //  khi mqtt broker publish với các topic tương ứng thì sẽ xử lý và gán vào 2 biến relay1_mqtt và relay2_mqtt để xử lý ở hàm relay task
-  if((String(payload[1]) == "N")&&(String(topic) == "/node/relay1"))
+  if((String(payload[1]) == "N")&&(String(topic) == String(R1_TP_CHAR)))
   {
     Serial.print("\nBat device 1\n");
     relay1_mqtt = "ON";
@@ -67,7 +67,7 @@ void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties 
     Serial.println(relay1_mqtt);
   }
 //  nếu nhận được topic là relay1 on thì gán topic đó vào relay1_mqtt
-  else if((String(payload[1]) == "F")&&(String(topic) == "/node/relay1"))
+  else if((String(payload[1]) == "F")&&(String(topic) == String(R1_TP_CHAR)))
   {
     Serial.print("\nTat device 1\n");
     relay1_mqtt = "OFF";
@@ -76,7 +76,7 @@ void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties 
   }
 // tương tự các hàm còn lại
     
-  if((String(payload[1]) == "N")&&(String(topic) == "/node/relay2"))
+  if((String(payload[1]) == "N")&&(String(topic) == String(R2_TP_CHAR)))
   {
     Serial.print("\nBat device 2\n");
     relay2_mqtt = "ON";
@@ -84,7 +84,7 @@ void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties 
     Serial.println(relay2_mqtt);
   }
 //  nếu nhận được topic là relay1 on thì gán topic đó vào relay2_mqtt
-  else if((String(payload[1]) == "F")&&(String(topic) == "/node/relay2"))
+  else if((String(payload[1]) == "F")&&(String(topic) == String(R2_TP_CHAR)))
   {
     Serial.print("\nTat device 2\n");
     relay2_mqtt = "OFF";

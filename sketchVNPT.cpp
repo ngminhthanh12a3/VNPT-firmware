@@ -50,15 +50,13 @@ String wifi_status;
 /* Timer interrupt call back */
 void IRAM_ATTR onTimer(){
   /* Handle the scheduler time tick */
-
-  if(wifi_status_event == WL_CONNECTED){
-  Scheduler_SynTick();
-  } 
-  else{
-    /*no action*/
-
-  }
-
+    if(wifi_status_event == WL_CONNECTED){
+    Scheduler_SynTick();
+    } 
+    else{
+      /*no action*/
+  
+    }
 }
 
 /*******************************************************************************

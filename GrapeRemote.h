@@ -46,8 +46,10 @@
 *******************************************************************************/
 #if(USE_CONFIG_BOOT == STD_OFF) // Config by Code
   
-#define WIFI_SSID "Thanh Nguyen"
-#define WIFI_PASSWORD "nguyent1220"
+#define WIFI_SSID "KHCN1"
+#define WIFI_PASSWORD "deslab2610"
+//#define WIFI_SSID "ThanhNguyen"
+//#define WIFI_PASSWORD "nguyent1220"
 
 #else //Config by Script file
 

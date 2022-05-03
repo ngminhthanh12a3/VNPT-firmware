@@ -14,7 +14,12 @@ String gsWifiPass_connected;
 volatile wl_status_t wifi_status_event;
 
 void connectToWifi() {
-  Serial.println("Connecting to Wi-Fi...");
+  Serial.println("Connecting to Wi-Fi");
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println(WiFi.localIP());
 }

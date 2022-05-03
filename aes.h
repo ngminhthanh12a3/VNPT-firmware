@@ -28,7 +28,7 @@ extern "C" {
 #endif
 
 
-#define AES128 1
+//#define AES128 1  //comment by VanNhi, because it was conflicted
 //#define AES192 1
 //#define AES256 1
 

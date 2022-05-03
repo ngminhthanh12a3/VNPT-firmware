@@ -34,9 +34,14 @@ extern "C" {
 #include "MQTT.h"
 #include "ChaCha20.h"
 
+// toCharArray
+#include <Arduino.h>
+
 // -----------------------------------------------------------------------
 // --------------------------------Define---------------------------------
 // -----------------------------------------------------------------------
+
+
 
 // -----------------------------------------------------------------------
 // -------------------------------Dedcleare-------------------------------
@@ -52,6 +57,7 @@ extern const long interval;        // Interval at which to publish sensor readin
 extern uint8_t key[16];
 extern struct AES_ctx ctx;
 static const int spiClk = 2000000; // 1 MHz
+
 
 //Timer Parameters
 extern uint32_t currentTime;
